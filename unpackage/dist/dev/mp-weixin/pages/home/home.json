@@ -1,0 +1,8 @@
+{
+  "navigationBarTitleText": "首页",
+  "usingComponents": {
+    "select-tab-bar": "../../components/selectTabBar/selectTabBar",
+    "banner": "./c-pns/banner",
+    "recommend": "./c-pns/recommend"
+  }
+}

@@ -1,0 +1,12 @@
+
+.HomeWrapper {
+		padding: 30rpx;
+}
+.header {
+		width: 100%;
+		height: 50rpx;
+		text-align: center;
+		font-weight: 700;
+		margin-top: 20rpx;
+		line-height: 50rpx;
+}
