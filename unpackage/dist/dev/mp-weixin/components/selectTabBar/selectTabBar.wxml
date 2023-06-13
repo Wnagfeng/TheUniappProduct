@@ -1,1 +1,1 @@
-<view class="TabWrapper"><block wx:for="{{a}}" wx:for-item="item" key="index"><view class="textWrapper" bindtap="{{item.c}}"><text class="{{['text', item.b]}}">{{item.a}}</text></view></block></view>
+<view class="TabWrapper"><block wx:for="{{a}}" wx:for-item="item" wx:key="d"><view class="textWrapper" bindtap="{{item.c}}"><text class="{{['text', item.b]}}">{{item.a}}</text></view></block></view>

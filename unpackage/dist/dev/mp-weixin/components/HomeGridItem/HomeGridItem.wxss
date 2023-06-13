@@ -1,0 +1,34 @@
+
+.gridItemWrapper {
+		display: flex;
+		align-items: center;
+		box-sizing: border-box;
+		flex-wrap: nowrap;
+		padding: 10rpx;
+		flex-direction: column;
+}
+.goodsInfo {
+		margin-top: 20rpx;
+		width: 320rpx;
+		font-size: 28rpx;
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
+}
+.image {
+		flex-shrink: 1;
+		width: 320rpx;
+		border-radius: 25rpx;
+}
+.favorIcon {
+		margin: 0 10rpx;
+		width: 30rpx;
+}
+.price {
+		color: #ff8198;
+}
+.info {
+		margin-top: 20rpx;
+		display: flex;
+		align-items: center;
+}

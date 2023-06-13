@@ -1,0 +1,17 @@
+
+.navbarWrapper {
+		background-color: aliceblue;
+		width: 100%;
+}
+.topbar {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+}
+.title {
+		padding: 20rpx 40rpx;
+}
+.active{
+		font-weight: 800;
+		color: #ff8198;
+}

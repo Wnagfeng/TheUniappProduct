@@ -32,6 +32,7 @@ if (uni.restoreGlobal) {
 (function(vue, shared) {
   "use strict";
   const ON_LOAD = "onLoad";
+  const ON_REACH_BOTTOM = "onReachBottom";
   function formatAppLog(type, filename, ...args) {
     if (uni.__log__) {
       uni.__log__(type, filename, ...args);
@@ -46,6 +47,7 @@ if (uni.restoreGlobal) {
     !vue.isInSSRComponentSetup && vue.injectHook(lifecycle, hook, target);
   };
   const onLoad = /* @__PURE__ */ createHook(ON_LOAD);
+  const onReachBottom = /* @__PURE__ */ createHook(ON_REACH_BOTTOM);
   const _export_sfc = (sfc, props) => {
     const target = sfc.__vccOpts || sfc;
     for (const [key, val] of props) {
@@ -53,7 +55,7 @@ if (uni.restoreGlobal) {
     }
     return target;
   };
-  const _sfc_main$8 = {
+  const _sfc_main$f = {
     __name: "selectTabBar",
     props: {
       tabBar: {
@@ -77,7 +79,7 @@ if (uni.restoreGlobal) {
             null,
             vue.renderList(__props.tabBar, (item, index) => {
               return vue.openBlock(), vue.createElementBlock("view", {
-                key: "index",
+                key: index,
                 class: "textWrapper",
                 onClick: ($event) => ItemCLick(index)
               }, [
@@ -99,7 +101,228 @@ if (uni.restoreGlobal) {
       };
     }
   };
-  const __easycom_0 = /* @__PURE__ */ _export_sfc(_sfc_main$8, [["__scopeId", "data-v-90259a18"], ["__file", "C:/Users/WangFeng/Desktop/uni-app学习/WfMall/components/selectTabBar/selectTabBar.vue"]]);
+  const __easycom_0 = /* @__PURE__ */ _export_sfc(_sfc_main$f, [["__scopeId", "data-v-90259a18"], ["__file", "C:/Users/WangFeng/Desktop/uni-app学习/WfMall/components/selectTabBar/selectTabBar.vue"]]);
+  const _sfc_main$e = {
+    __name: "HomeGridItem",
+    props: {
+      itemData: {
+        type: Object,
+        default: () => {
+          return {};
+        }
+      }
+    },
+    emits: ["GridItemCLick"],
+    setup(__props, { emit }) {
+      const props = __props;
+      function GridItemClick() {
+        emit("GridItemCLick", props.itemData);
+      }
+      return (_ctx, _cache) => {
+        return vue.openBlock(), vue.createElementBlock("view", {
+          class: "gridItemWrapper",
+          onClick: GridItemClick
+        }, [
+          vue.createElementVNode("image", {
+            class: "image",
+            "lazy-load": true,
+            src: __props.itemData.showLarge.img,
+            mode: "widthFix"
+          }, null, 8, ["src"]),
+          vue.createElementVNode(
+            "view",
+            { class: "goodsInfo" },
+            vue.toDisplayString(__props.itemData.title),
+            1
+            /* TEXT */
+          ),
+          vue.createElementVNode("view", { class: "info" }, [
+            vue.createElementVNode(
+              "text",
+              { class: "price" },
+              vue.toDisplayString(__props.itemData.orgPrice),
+              1
+              /* TEXT */
+            ),
+            vue.createElementVNode("image", {
+              class: "favorIcon",
+              src: "/static/images/common/favor.png",
+              mode: "widthFix"
+            }),
+            vue.createElementVNode(
+              "text",
+              { class: "favor" },
+              vue.toDisplayString(__props.itemData.cfav),
+              1
+              /* TEXT */
+            )
+          ])
+        ]);
+      };
+    }
+  };
+  const __easycom_1 = /* @__PURE__ */ _export_sfc(_sfc_main$e, [["__scopeId", "data-v-0040e4c3"], ["__file", "C:/Users/WangFeng/Desktop/uni-app学习/WfMall/components/HomeGridItem/HomeGridItem.vue"]]);
+  const _sfc_main$d = {
+    name: "UniGridItem",
+    inject: ["grid"],
+    props: {
+      index: {
+        type: Number,
+        default: 0
+      }
+    },
+    data() {
+      return {
+        column: 0,
+        showBorder: true,
+        square: true,
+        highlight: true,
+        left: 0,
+        top: 0,
+        openNum: 2,
+        width: 0,
+        borderColor: "#e5e5e5"
+      };
+    },
+    created() {
+      this.column = this.grid.column;
+      this.showBorder = this.grid.showBorder;
+      this.square = this.grid.square;
+      this.highlight = this.grid.highlight;
+      this.top = this.hor === 0 ? this.grid.hor : this.hor;
+      this.left = this.ver === 0 ? this.grid.ver : this.ver;
+      this.borderColor = this.grid.borderColor;
+      this.grid.children.push(this);
+      this.width = this.grid.width;
+    },
+    beforeDestroy() {
+      this.grid.children.forEach((item, index) => {
+        if (item === this) {
+          this.grid.children.splice(index, 1);
+        }
+      });
+    },
+    methods: {
+      _onClick() {
+        this.grid.change({
+          detail: {
+            index: this.index
+          }
+        });
+      }
+    }
+  };
+  function _sfc_render$4(_ctx, _cache, $props, $setup, $data, $options) {
+    return $data.width ? (vue.openBlock(), vue.createElementBlock(
+      "view",
+      {
+        key: 0,
+        style: vue.normalizeStyle("width:" + $data.width + ";" + ($data.square ? "height:" + $data.width : "")),
+        class: "uni-grid-item"
+      },
+      [
+        vue.createElementVNode(
+          "view",
+          {
+            class: vue.normalizeClass([{ "uni-grid-item--border": $data.showBorder, "uni-grid-item--border-top": $data.showBorder && $props.index < $data.column, "uni-highlight": $data.highlight }, "uni-grid-item__box"]),
+            style: vue.normalizeStyle({ "border-right-color": $data.borderColor, "border-bottom-color": $data.borderColor, "border-top-color": $data.borderColor }),
+            onClick: _cache[0] || (_cache[0] = (...args) => $options._onClick && $options._onClick(...args))
+          },
+          [
+            vue.renderSlot(_ctx.$slots, "default", {}, void 0, true)
+          ],
+          6
+          /* CLASS, STYLE */
+        )
+      ],
+      4
+      /* STYLE */
+    )) : vue.createCommentVNode("v-if", true);
+  }
+  const __easycom_2 = /* @__PURE__ */ _export_sfc(_sfc_main$d, [["render", _sfc_render$4], ["__scopeId", "data-v-7a807eb7"], ["__file", "C:/Users/WangFeng/Desktop/uni-app学习/WfMall/uni_modules/uni-grid/components/uni-grid-item/uni-grid-item.vue"]]);
+  const _sfc_main$c = {
+    name: "UniGrid",
+    emits: ["change"],
+    props: {
+      // 每列显示个数
+      column: {
+        type: Number,
+        default: 3
+      },
+      // 是否显示边框
+      showBorder: {
+        type: Boolean,
+        default: true
+      },
+      // 边框颜色
+      borderColor: {
+        type: String,
+        default: "#D2D2D2"
+      },
+      // 是否正方形显示,默认为 true
+      square: {
+        type: Boolean,
+        default: true
+      },
+      highlight: {
+        type: Boolean,
+        default: true
+      }
+    },
+    provide() {
+      return {
+        grid: this
+      };
+    },
+    data() {
+      const elId = `Uni_${Math.ceil(Math.random() * 1e6).toString(36)}`;
+      return {
+        elId,
+        width: 0
+      };
+    },
+    created() {
+      this.children = [];
+    },
+    mounted() {
+      this.$nextTick(() => {
+        this.init();
+      });
+    },
+    methods: {
+      init() {
+        setTimeout(() => {
+          this._getSize((width) => {
+            this.children.forEach((item, index) => {
+              item.width = width;
+            });
+          });
+        }, 50);
+      },
+      change(e) {
+        this.$emit("change", e);
+      },
+      _getSize(fn) {
+        uni.createSelectorQuery().in(this).select(`#${this.elId}`).boundingClientRect().exec((ret) => {
+          this.width = parseInt((ret[0].width - 1) / this.column) + "px";
+          fn(this.width);
+        });
+      }
+    }
+  };
+  function _sfc_render$3(_ctx, _cache, $props, $setup, $data, $options) {
+    return vue.openBlock(), vue.createElementBlock("view", { class: "uni-grid-wrap" }, [
+      vue.createElementVNode("view", {
+        id: $data.elId,
+        ref: "uni-grid",
+        class: vue.normalizeClass(["uni-grid", { "uni-grid--border": $props.showBorder }]),
+        style: vue.normalizeStyle({ "border-left-color": $props.borderColor })
+      }, [
+        vue.renderSlot(_ctx.$slots, "default", {}, void 0, true)
+      ], 14, ["id"])
+    ]);
+  }
+  const __easycom_3 = /* @__PURE__ */ _export_sfc(_sfc_main$c, [["render", _sfc_render$3], ["__scopeId", "data-v-07acefee"], ["__file", "C:/Users/WangFeng/Desktop/uni-app学习/WfMall/uni_modules/uni-grid/components/uni-grid/uni-grid.vue"]]);
   var isVue2 = false;
   function set(target, key, val) {
     if (Array.isArray(target)) {
@@ -1736,11 +1959,37 @@ This will fail in production if not fixed.`);
   const getHomeMutidata = () => {
     return hyrequest.get("/home/multidata", {});
   };
+  const getHomeData = (type = "pop", page = 1) => {
+    return hyrequest.get("/home/data", {
+      type,
+      page
+    });
+  };
+  const gethomedetaileData = (iid) => {
+    return hyrequest.get("/detail", {
+      iid
+    });
+  };
+  const typs = ["pop", "sell", "new"];
+  function createGoodsListdata() {
+    let goodsListOrangin = {};
+    typs.forEach((item) => {
+      goodsListOrangin[item] = {
+        page: 0,
+        list: []
+      };
+    });
+    return goodsListOrangin;
+  }
   const useHomeStore = defineStore("home", {
     state: () => {
       return {
         banners: [],
-        recommends: []
+        recommends: [],
+        goodsList: createGoodsListdata(),
+        currentType: "pop",
+        currentGoodsData: {},
+        DetaileBanners: []
       };
     },
     actions: {
@@ -1748,10 +1997,23 @@ This will fail in production if not fixed.`);
         const res = await getHomeMutidata();
         this.banners = res.data.banner.list || [];
         this.recommends = res.data.recommend.list || [];
+      },
+      async fetchgetHomeData(type, page) {
+        const res = await getHomeData(type, page);
+        this.goodsList[type].list.push(...res.data.list);
+        this.goodsList[type].page = page;
+      },
+      setcurrentType(type) {
+        this.currentType = type;
+      },
+      async fetchgethomeDetaileData(iid) {
+        const res = await gethomedetaileData(iid);
+        this.currentGoodsData = res.result;
+        this.DetaileBanners = res.result.itemInfo.topImages;
       }
     }
   });
-  const _sfc_main$7 = {
+  const _sfc_main$b = {
     __name: "banner",
     props: {
       banners: {
@@ -1797,8 +2059,8 @@ This will fail in production if not fixed.`);
       };
     }
   };
-  const banner = /* @__PURE__ */ _export_sfc(_sfc_main$7, [["__scopeId", "data-v-01cc844b"], ["__file", "C:/Users/WangFeng/Desktop/uni-app学习/WfMall/pages/home/c-pns/banner.vue"]]);
-  const _sfc_main$6 = {
+  const banner$1 = /* @__PURE__ */ _export_sfc(_sfc_main$b, [["__scopeId", "data-v-01cc844b"], ["__file", "C:/Users/WangFeng/Desktop/uni-app学习/WfMall/pages/home/c-pns/banner.vue"]]);
+  const _sfc_main$a = {
     __name: "recommend",
     props: {
       recommend: {
@@ -1820,6 +2082,7 @@ This will fail in production if not fixed.`);
             null,
             vue.renderList(__props.recommend, (item) => {
               return vue.openBlock(), vue.createElementBlock("view", {
+                key: item,
                 class: "item",
                 onClick: ($event) => RecommenditemClick(item)
               }, [
@@ -1837,26 +2100,34 @@ This will fail in production if not fixed.`);
                 )
               ], 8, ["onClick"]);
             }),
-            256
-            /* UNKEYED_FRAGMENT */
+            128
+            /* KEYED_FRAGMENT */
           ))
         ]);
       };
     }
   };
-  const recommend = /* @__PURE__ */ _export_sfc(_sfc_main$6, [["__scopeId", "data-v-992cb274"], ["__file", "C:/Users/WangFeng/Desktop/uni-app学习/WfMall/pages/home/c-pns/recommend.vue"]]);
-  const _sfc_main$5 = {
+  const recommend = /* @__PURE__ */ _export_sfc(_sfc_main$a, [["__scopeId", "data-v-992cb274"], ["__file", "C:/Users/WangFeng/Desktop/uni-app学习/WfMall/pages/home/c-pns/recommend.vue"]]);
+  const _sfc_main$9 = {
     __name: "home",
     setup(__props) {
       const tabBar = ["流行", "新款", "精选"];
       const homestore = useHomeStore();
       const {
         banners,
-        recommends
+        recommends,
+        goodsList,
+        currentType
       } = storeToRefs(homestore);
       onLoad(() => {
-        formatAppLog("log", "at pages/home/home.vue:38", "home");
+        formatAppLog("log", "at pages/home/home.vue:53", "home");
         homestore.fetchgetHomeMUtidata();
+        homestore.fetchgetHomeData("pop", 1);
+        homestore.fetchgetHomeData("new", 1);
+        homestore.fetchgetHomeData("sell", 1);
+      });
+      onReachBottom(() => {
+        homestore.fetchgetHomeData(currentType.value, goodsList.value[currentType.value].page + 1);
       });
       function handelbannerItemCLick(event) {
         wx.navigateTo({
@@ -1869,16 +2140,25 @@ This will fail in production if not fixed.`);
         });
       }
       function handelitemClik(index) {
-        formatAppLog("log", "at pages/home/home.vue:55", tabBar[index]);
+        homestore.setcurrentType(typs[index]);
+      }
+      function handelGridItemCLick(data) {
+        uni.navigateTo({
+          url: "/pages/Detaile/Detaile?iid=" + data.iid
+        });
+        formatAppLog("log", "at pages/home/home.vue:83", "Grid点击了", data.iid);
       }
       return (_ctx, _cache) => {
         const _component_selectTabBar = resolveEasycom(vue.resolveDynamicComponent("selectTabBar"), __easycom_0);
+        const _component_HomeGridItem = resolveEasycom(vue.resolveDynamicComponent("HomeGridItem"), __easycom_1);
+        const _component_uni_grid_item = resolveEasycom(vue.resolveDynamicComponent("uni-grid-item"), __easycom_2);
+        const _component_uni_grid = resolveEasycom(vue.resolveDynamicComponent("uni-grid"), __easycom_3);
         return vue.openBlock(), vue.createElementBlock(
           vue.Fragment,
           null,
           [
             vue.createCommentVNode(" 轮播图组件 "),
-            vue.createVNode(banner, {
+            vue.createVNode(banner$1, {
               banners: vue.unref(banners),
               onBannerItemCLick: handelbannerItemCLick
             }, null, 8, ["banners"]),
@@ -1902,7 +2182,41 @@ This will fail in production if not fixed.`);
               vue.createVNode(_component_selectTabBar, {
                 tabBar,
                 onItemClik: handelitemClik
-              })
+              }),
+              vue.createCommentVNode(" 多选卡内容 "),
+              vue.createElementVNode("view", { class: "gridWrapper" }, [
+                vue.createVNode(_component_uni_grid, {
+                  column: 2,
+                  "border-color": "#fff",
+                  square: false
+                }, {
+                  default: vue.withCtx(() => [
+                    (vue.openBlock(true), vue.createElementBlock(
+                      vue.Fragment,
+                      null,
+                      vue.renderList(vue.unref(goodsList)[vue.unref(currentType)].list, (item, index) => {
+                        return vue.openBlock(), vue.createBlock(_component_uni_grid_item, {
+                          key: item.iid,
+                          index
+                        }, {
+                          default: vue.withCtx(() => [
+                            vue.createVNode(_component_HomeGridItem, {
+                              itemData: item,
+                              onGridItemCLick: handelGridItemCLick
+                            }, null, 8, ["itemData"])
+                          ]),
+                          _: 2
+                          /* DYNAMIC */
+                        }, 1032, ["index"]);
+                      }),
+                      128
+                      /* KEYED_FRAGMENT */
+                    ))
+                  ]),
+                  _: 1
+                  /* STABLE */
+                })
+              ])
             ])
           ],
           64
@@ -1911,8 +2225,8 @@ This will fail in production if not fixed.`);
       };
     }
   };
-  const PagesHomeHome = /* @__PURE__ */ _export_sfc(_sfc_main$5, [["__file", "C:/Users/WangFeng/Desktop/uni-app学习/WfMall/pages/home/home.vue"]]);
-  const _sfc_main$4 = {
+  const PagesHomeHome = /* @__PURE__ */ _export_sfc(_sfc_main$9, [["__file", "C:/Users/WangFeng/Desktop/uni-app学习/WfMall/pages/home/home.vue"]]);
+  const _sfc_main$8 = {
     data() {
       return {};
     }
@@ -1920,8 +2234,8 @@ This will fail in production if not fixed.`);
   function _sfc_render$2(_ctx, _cache, $props, $setup, $data, $options) {
     return vue.openBlock(), vue.createElementBlock("view");
   }
-  const PagesProfileProfile = /* @__PURE__ */ _export_sfc(_sfc_main$4, [["render", _sfc_render$2], ["__file", "C:/Users/WangFeng/Desktop/uni-app学习/WfMall/pages/profile/profile.vue"]]);
-  const _sfc_main$3 = {
+  const PagesProfileProfile = /* @__PURE__ */ _export_sfc(_sfc_main$8, [["render", _sfc_render$2], ["__file", "C:/Users/WangFeng/Desktop/uni-app学习/WfMall/pages/profile/profile.vue"]]);
+  const _sfc_main$7 = {
     data() {
       return {};
     },
@@ -1930,8 +2244,8 @@ This will fail in production if not fixed.`);
   function _sfc_render$1(_ctx, _cache, $props, $setup, $data, $options) {
     return vue.openBlock(), vue.createElementBlock("view");
   }
-  const PagesCartCart = /* @__PURE__ */ _export_sfc(_sfc_main$3, [["render", _sfc_render$1], ["__file", "C:/Users/WangFeng/Desktop/uni-app学习/WfMall/pages/cart/cart.vue"]]);
-  const _sfc_main$2 = {
+  const PagesCartCart = /* @__PURE__ */ _export_sfc(_sfc_main$7, [["render", _sfc_render$1], ["__file", "C:/Users/WangFeng/Desktop/uni-app学习/WfMall/pages/cart/cart.vue"]]);
+  const _sfc_main$6 = {
     data() {
       return {};
     }
@@ -1939,8 +2253,8 @@ This will fail in production if not fixed.`);
   function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
     return vue.openBlock(), vue.createElementBlock("view");
   }
-  const PagesCategoryCategory = /* @__PURE__ */ _export_sfc(_sfc_main$2, [["render", _sfc_render], ["__file", "C:/Users/WangFeng/Desktop/uni-app学习/WfMall/pages/category/category.vue"]]);
-  const _sfc_main$1 = {
+  const PagesCategoryCategory = /* @__PURE__ */ _export_sfc(_sfc_main$6, [["render", _sfc_render], ["__file", "C:/Users/WangFeng/Desktop/uni-app学习/WfMall/pages/category/category.vue"]]);
+  const _sfc_main$5 = {
     __name: "bannerDetaile",
     props: {
       link: {
@@ -1954,12 +2268,304 @@ This will fail in production if not fixed.`);
       };
     }
   };
-  const PagesHomeCPageBannerDetaileBannerDetaile = /* @__PURE__ */ _export_sfc(_sfc_main$1, [["__file", "C:/Users/WangFeng/Desktop/uni-app学习/WfMall/pages/home/c-page/bannerDetaile/bannerDetaile.vue"]]);
+  const PagesHomeCPageBannerDetaileBannerDetaile = /* @__PURE__ */ _export_sfc(_sfc_main$5, [["__file", "C:/Users/WangFeng/Desktop/uni-app学习/WfMall/pages/home/c-page/bannerDetaile/bannerDetaile.vue"]]);
+  const _sfc_main$4 = {
+    __name: "top-nav-bar",
+    props: {
+      tabbar: {
+        type: Array,
+        default: () => {
+          return [
+            {
+              title: "商品",
+              id: 0
+            },
+            {
+              title: "参数",
+              id: 1
+            },
+            {
+              title: "评论",
+              id: 2
+            },
+            {
+              title: "推荐",
+              id: 3
+            }
+          ];
+        }
+      }
+    },
+    emits: ["itemCLick"],
+    setup(__props, { emit }) {
+      const currentIndex = vue.ref(0);
+      function itemClick(index) {
+        currentIndex.value = index;
+        emit("itemCLick", index);
+      }
+      return (_ctx, _cache) => {
+        return vue.openBlock(), vue.createElementBlock("view", { class: "navbarWrapper" }, [
+          vue.createElementVNode("view", { class: "topbar" }, [
+            (vue.openBlock(true), vue.createElementBlock(
+              vue.Fragment,
+              null,
+              vue.renderList(__props.tabbar, (item, index) => {
+                return vue.openBlock(), vue.createElementBlock("view", {
+                  key: item.id,
+                  class: vue.normalizeClass(["title", currentIndex.value === index ? "active" : ""]),
+                  onClick: ($event) => itemClick(index)
+                }, vue.toDisplayString(item.title), 11, ["onClick"]);
+              }),
+              128
+              /* KEYED_FRAGMENT */
+            ))
+          ])
+        ]);
+      };
+    }
+  };
+  const topNavbar = /* @__PURE__ */ _export_sfc(_sfc_main$4, [["__scopeId", "data-v-c47d77de"], ["__file", "C:/Users/WangFeng/Desktop/uni-app学习/WfMall/pages/Detaile/c-pns/top-nav-bar.vue"]]);
+  const _sfc_main$3 = {
+    __name: "banner",
+    props: {
+      banner: {
+        type: Array,
+        default: () => {
+          return [];
+        }
+      }
+    },
+    setup(__props) {
+      const props = __props;
+      formatAppLog("log", "at pages/Detaile/c-pns/banner.vue:22", props.banner);
+      return (_ctx, _cache) => {
+        return vue.openBlock(), vue.createElementBlock("swiper", {
+          "indicator-dots": true,
+          autoplay: true,
+          interval: 3e3,
+          duration: 1e3,
+          class: "wrapper"
+        }, [
+          (vue.openBlock(true), vue.createElementBlock(
+            vue.Fragment,
+            null,
+            vue.renderList(props.banner, (item) => {
+              return vue.openBlock(), vue.createElementBlock("swiper-item", { class: "imgitem" }, [
+                vue.createElementVNode("view", { class: "swiper-item" }, [
+                  vue.createElementVNode("image", {
+                    class: "image",
+                    src: item,
+                    mode: "widthFix"
+                  }, null, 8, ["src"])
+                ])
+              ]);
+            }),
+            256
+            /* UNKEYED_FRAGMENT */
+          ))
+        ]);
+      };
+    }
+  };
+  const banner = /* @__PURE__ */ _export_sfc(_sfc_main$3, [["__scopeId", "data-v-a7ca8bc3"], ["__file", "C:/Users/WangFeng/Desktop/uni-app学习/WfMall/pages/Detaile/c-pns/banner.vue"]]);
+  const _sfc_main$2 = {
+    __name: "goodsInfoDetaile",
+    props: {
+      itemdata: {
+        type: Object,
+        default: () => {
+          return {};
+        }
+      }
+    },
+    setup(__props) {
+      const props = __props;
+      return (_ctx, _cache) => {
+        var _a, _b, _c, _d, _e, _f, _g, _h, _i, _j, _k, _l, _m, _n, _o, _p, _q;
+        return vue.openBlock(), vue.createElementBlock("view", { class: "Wrapper" }, [
+          vue.createElementVNode(
+            "view",
+            { class: "title" },
+            vue.toDisplayString((_a = props.itemdata.skuInfo) == null ? void 0 : _a.title),
+            1
+            /* TEXT */
+          ),
+          vue.createElementVNode("view", { class: "price" }, [
+            vue.createElementVNode(
+              "view",
+              { class: "priceRange" },
+              vue.toDisplayString((_b = props.itemdata.skuInfo) == null ? void 0 : _b.priceRange),
+              1
+              /* TEXT */
+            ),
+            vue.createElementVNode(
+              "view",
+              { class: "oldprice" },
+              " $" + vue.toDisplayString((_c = props.itemdata.itemInfo) == null ? void 0 : _c.lowPrice),
+              1
+              /* TEXT */
+            ),
+            vue.createElementVNode(
+              "view",
+              { class: "discountDesc" },
+              vue.toDisplayString((_d = props.itemdata.itemInfo) == null ? void 0 : _d.discountDesc),
+              1
+              /* TEXT */
+            )
+          ]),
+          vue.createElementVNode("view", { class: "columns" }, [
+            props.itemdata.columns ? (vue.openBlock(), vue.createElementBlock(
+              vue.Fragment,
+              { key: 0 },
+              [
+                vue.createElementVNode(
+                  "text",
+                  null,
+                  vue.toDisplayString(props.itemdata.columns[0]),
+                  1
+                  /* TEXT */
+                ),
+                vue.createElementVNode(
+                  "text",
+                  null,
+                  vue.toDisplayString(props.itemdata.columns[1]),
+                  1
+                  /* TEXT */
+                ),
+                vue.createElementVNode(
+                  "text",
+                  null,
+                  vue.toDisplayString((_e = props.itemdata.shopInfo) == null ? void 0 : _e.services[props.itemdata.shopInfo.services.length - 1].name),
+                  1
+                  /* TEXT */
+                )
+              ],
+              64
+              /* STABLE_FRAGMENT */
+            )) : vue.createCommentVNode("v-if", true)
+          ]),
+          vue.createElementVNode("view", { class: "services" }, [
+            props.itemdata.shopInfo ? (vue.openBlock(), vue.createElementBlock("view", {
+              key: 0,
+              class: "inner"
+            }, [
+              ((_f = props.itemdata.shopInfo) == null ? void 0 : _f.services[0].icon) ? (vue.openBlock(), vue.createElementBlock("view", {
+                key: 0,
+                class: "icon"
+              }, [
+                vue.createElementVNode("image", {
+                  class: "image",
+                  src: (_g = props.itemdata.shopInfo) == null ? void 0 : _g.services[0].icon,
+                  mode: "widthFix"
+                }, null, 8, ["src"])
+              ])) : vue.createCommentVNode("v-if", true),
+              vue.createElementVNode(
+                "view",
+                { class: "name" },
+                vue.toDisplayString((_h = props.itemdata.shopInfo) == null ? void 0 : _h.services[0].name),
+                1
+                /* TEXT */
+              ),
+              ((_i = props.itemdata.shopInfo) == null ? void 0 : _i.services[1].icon) ? (vue.openBlock(), vue.createElementBlock("view", {
+                key: 1,
+                class: "icon"
+              }, [
+                vue.createElementVNode("image", {
+                  class: "image",
+                  src: (_j = props.itemdata.shopInfo) == null ? void 0 : _j.services[1].icon,
+                  mode: "widthFix"
+                }, null, 8, ["src"])
+              ])) : vue.createCommentVNode("v-if", true),
+              vue.createElementVNode(
+                "view",
+                { class: "name" },
+                vue.toDisplayString((_k = props.itemdata.shopInfo) == null ? void 0 : _k.services[1].name),
+                1
+                /* TEXT */
+              ),
+              ((_l = props.itemdata.shopInfo) == null ? void 0 : _l.services[2].icon) ? (vue.openBlock(), vue.createElementBlock("view", {
+                key: 2,
+                class: "icon"
+              }, [
+                vue.createElementVNode("image", {
+                  class: "image",
+                  src: (_m = props.itemdata.shopInfo) == null ? void 0 : _m.services[2].icon,
+                  mode: "widthFix"
+                }, null, 8, ["src"])
+              ])) : vue.createCommentVNode("v-if", true),
+              vue.createElementVNode(
+                "view",
+                { class: "name" },
+                vue.toDisplayString((_n = props.itemdata.shopInfo) == null ? void 0 : _n.services[2].name),
+                1
+                /* TEXT */
+              ),
+              ((_o = props.itemdata.shopInfo) == null ? void 0 : _o.services[3].icon) ? (vue.openBlock(), vue.createElementBlock("view", {
+                key: 3,
+                class: "icon"
+              }, [
+                vue.createElementVNode("image", {
+                  class: "image",
+                  src: (_p = props.itemdata.shopInfo) == null ? void 0 : _p.services[3].icon,
+                  mode: "widthFix"
+                }, null, 8, ["src"])
+              ])) : vue.createCommentVNode("v-if", true),
+              vue.createElementVNode(
+                "view",
+                { class: "name" },
+                vue.toDisplayString((_q = props.itemdata.shopInfo) == null ? void 0 : _q.services[3].name),
+                1
+                /* TEXT */
+              )
+            ])) : vue.createCommentVNode("v-if", true)
+          ])
+        ]);
+      };
+    }
+  };
+  const goodsinfoDetaile = /* @__PURE__ */ _export_sfc(_sfc_main$2, [["__scopeId", "data-v-ccc77f96"], ["__file", "C:/Users/WangFeng/Desktop/uni-app学习/WfMall/pages/Detaile/c-pns/goodsInfoDetaile.vue"]]);
+  const _sfc_main$1 = {
+    __name: "Detaile",
+    props: {
+      iid: {
+        type: String,
+        default: ""
+      }
+    },
+    setup(__props) {
+      const props = __props;
+      const homestore = useHomeStore();
+      const {
+        currentGoodsData,
+        DetaileBanners
+      } = storeToRefs(homestore);
+      onLoad(() => {
+        homestore.fetchgethomeDetaileData(props.iid);
+      });
+      function handelitemCLick(index) {
+        formatAppLog("log", "at pages/Detaile/Detaile.vue:44", "导航栏点击了", index);
+      }
+      return (_ctx, _cache) => {
+        return vue.openBlock(), vue.createElementBlock("view", { class: "detaileWrapper" }, [
+          vue.createCommentVNode(" 顶部导航条 "),
+          vue.createElementVNode("view", { class: "topbar" }, [
+            vue.createVNode(topNavbar, { onItemCLick: handelitemCLick })
+          ]),
+          vue.createCommentVNode(" 轮播图组件 "),
+          vue.createVNode(banner, { banner: vue.unref(DetaileBanners) }, null, 8, ["banner"]),
+          vue.createCommentVNode(" 商品详情 "),
+          vue.createVNode(goodsinfoDetaile, { itemdata: vue.unref(currentGoodsData) }, null, 8, ["itemdata"])
+        ]);
+      };
+    }
+  };
+  const PagesDetaileDetaile = /* @__PURE__ */ _export_sfc(_sfc_main$1, [["__file", "C:/Users/WangFeng/Desktop/uni-app学习/WfMall/pages/Detaile/Detaile.vue"]]);
   __definePage("pages/home/home", PagesHomeHome);
   __definePage("pages/profile/profile", PagesProfileProfile);
   __definePage("pages/cart/cart", PagesCartCart);
   __definePage("pages/category/category", PagesCategoryCategory);
   __definePage("pages/home/c-page/bannerDetaile/bannerDetaile", PagesHomeCPageBannerDetaileBannerDetaile);
+  __definePage("pages/Detaile/Detaile", PagesDetaileDetaile);
   const _sfc_main = {
     onLaunch: function() {
       formatAppLog("log", "at App.vue:4", "App Launch");
@@ -1972,6 +2578,32 @@ This will fail in production if not fixed.`);
     }
   };
   const App = /* @__PURE__ */ _export_sfc(_sfc_main, [["__file", "C:/Users/WangFeng/Desktop/uni-app学习/WfMall/App.vue"]]);
+  /*!
+   * vue3-lazy v1.0.0-alpha.1
+   * (c) 2020-2020 ustbhuangyi
+   * Released under the MIT License.
+   */
+  var State;
+  (function(State2) {
+    State2[State2["loading"] = 0] = "loading";
+    State2[State2["loaded"] = 1] = "loaded";
+    State2[State2["error"] = 2] = "error";
+  })(State || (State = {}));
+  var inBrowser = typeof window !== "undefined";
+  checkIntersectionObserver();
+  function checkIntersectionObserver() {
+    if (inBrowser && "IntersectionObserver" in window && "IntersectionObserverEntry" in window && "intersectionRatio" in IntersectionObserverEntry.prototype) {
+      if (!("isIntersecting" in IntersectionObserverEntry.prototype)) {
+        Object.defineProperty(IntersectionObserverEntry.prototype, "isIntersecting", {
+          get: function() {
+            return this.intersectionRatio > 0;
+          }
+        });
+      }
+      return true;
+    }
+    return false;
+  }
   function createApp() {
     const app = vue.createVueApp(App);
     app.use(createPinia());

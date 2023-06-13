@@ -1,6 +1,6 @@
 <template>
 	<view class="recommendWrapper">
-		<template v-for="(item) in recommend">
+		<template v-for="(item) in recommend" :key="item">
 			<view class="item" @click="RecommenditemClick(item)">
 				<image class="image" :src="item.image" mode="widthFix"></image>
 				<text class="text">{{item.title}}</text>

@@ -23,7 +23,8 @@ const _sfc_main = {
           return {
             a: common_vendor.t(item),
             b: common_vendor.n(selectindex.value === index ? "active" : ""),
-            c: common_vendor.o(($event) => ItemCLick(index))
+            c: common_vendor.o(($event) => ItemCLick(index), index),
+            d: index
           };
         })
       };

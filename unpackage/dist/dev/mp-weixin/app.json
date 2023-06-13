@@ -4,7 +4,8 @@
     "pages/profile/profile",
     "pages/cart/cart",
     "pages/category/category",
-    "pages/home/c-page/bannerDetaile/bannerDetaile"
+    "pages/home/c-page/bannerDetaile/bannerDetaile",
+    "pages/Detaile/Detaile"
   ],
   "window": {
     "navigationBarTextStyle": "black",

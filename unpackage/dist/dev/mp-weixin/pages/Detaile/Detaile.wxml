@@ -1,0 +1,1 @@
+<view class="detaileWrapper"><view class="topbar"><top-navbar binditemCLick="{{a}}" u-i="549e9109-0" bind:__l="__l"></top-navbar></view><banner wx:if="{{b}}" u-i="549e9109-1" bind:__l="__l" u-p="{{b}}"></banner><goodsinfo-detaile wx:if="{{c}}" u-i="549e9109-2" bind:__l="__l" u-p="{{c}}"></goodsinfo-detaile></view>

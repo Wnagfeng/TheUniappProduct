@@ -1,0 +1,9 @@
+{
+  "navigationBarTitleText": "商品详情",
+  "enablePullDownRefresh": false,
+  "usingComponents": {
+    "top-navbar": "./c-pns/top-nav-bar",
+    "banner": "./c-pns/banner",
+    "goodsinfo-detaile": "./c-pns/goodsInfoDetaile"
+  }
+}

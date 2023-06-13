@@ -1,0 +1,58 @@
+
+.Wrapper {
+		margin-top: 20rpx;
+		background-color: #fff;
+		padding: 20rpx;
+}
+.priceRange {
+		font-size: 40rpx;
+		color: #ff8198;
+		font-weight: 800;
+}
+.price {
+		margin-top: 30rpx;
+		position: absolute;
+		display: flex;
+}
+.oldprice {
+		margin-left: 20rpx;
+		color: #999;
+}
+.discountDesc {
+		position: relative;
+		color: #fff;
+		padding: 2rpx 10rpx;
+		background-color: #ff8198;
+		border-radius: 20rpx;
+		top: -25rpx;
+		left: 10rpx;
+}
+.columns {
+		font-size: 30rpx;
+		margin-top: 110rpx;
+		display: flex;
+		justify-content: space-between;
+		color: #999;
+		padding-bottom: 10rpx;
+		border-bottom: 1px solid #999;
+}
+.icon {
+		width: 28rpx;
+		height: 28rpx;
+}
+.image {
+		width: 100%;
+}
+.services {
+		padding: 20rpx;
+		display: flex;
+}
+.inner {
+		padding: 20rpx;
+		width: 100%;
+		display: flex;
+		justify-content: space-between;
+}
+.name {
+		font-size: 5rpx;
+}

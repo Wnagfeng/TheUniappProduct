@@ -12,15 +12,28 @@
 		<recommend :recommend="recommends" @recommendItemClick="handelrecommendItemClick"></recommend>
 		<!-- 多选卡 -->
 		<selectTabBar :tabBar='tabBar' @itemClik='handelitemClik'></selectTabBar>
+		<!-- 多选卡内容 -->
+		<view class="gridWrapper">
+			<uni-grid :column="2" border-color="#fff" :square="false">
+				<template v-for="(item,index) in goodsList[currentType].list" :key="item.iid">
+					<uni-grid-item :index="index">
+						<HomeGridItem :itemData="item" @GridItemCLick="handelGridItemCLick"></HomeGridItem>
+					</uni-grid-item>
+
+				</template>
+			</uni-grid>
+		</view>
 	</view>
 </template>
 
 <script setup>
 	import {
-		onLoad
+		onLoad,
+		onReachBottom
 	} from '@dcloudio/uni-app'
 	import {
-		useHomeStore
+		useHomeStore,
+		typs
 	} from '@/store/homeStore.js'
 	import {
 		storeToRefs
@@ -32,11 +45,19 @@
 	const homestore = useHomeStore()
 	const {
 		banners,
-		recommends
+		recommends,
+		goodsList,
+		currentType
 	} = storeToRefs(homestore)
 	onLoad(() => {
 		console.log("home")
 		homestore.fetchgetHomeMUtidata()
+		homestore.fetchgetHomeData('pop', 1)
+		homestore.fetchgetHomeData('new', 1)
+		homestore.fetchgetHomeData('sell', 1)
+	})
+	onReachBottom(() => {
+		homestore.fetchgetHomeData(currentType.value, goodsList.value[currentType.value].page + 1)
 	})
 
 	function handelbannerItemCLick(event) {
@@ -52,7 +73,14 @@
 	}
 
 	function handelitemClik(index) {
-		console.log(tabBar[index])
+		homestore.setcurrentType(typs[index])
+	}
+
+	function handelGridItemCLick(data) {
+		uni.navigateTo({
+			url: '/pages/Detaile/Detaile?iid=' + data.iid
+		})
+		console.log('Grid点击了', data.iid)
 	}
 </script>
 
@@ -68,5 +96,9 @@
 		font-weight: 700;
 		margin-top: 20rpx;
 		line-height: 50rpx;
+	}
+
+	.gridWrapper {
+		margin-top: 60rpx;
 	}
 </style>

@@ -10,3 +10,6 @@
 		margin-top: 20rpx;
 		line-height: 50rpx;
 }
+.gridWrapper {
+		margin-top: 60rpx;
+}

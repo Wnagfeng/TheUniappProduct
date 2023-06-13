@@ -1,6 +1,6 @@
 <template>
 	<view class="TabWrapper">
-		<template v-for="(item,index) in tabBar" key="index">
+		<template v-for="(item,index) in tabBar" :key="index">
 			<view class="textWrapper" @click="ItemCLick(index)">
 				<text :class="['text',selectindex===index ? 'active' :'']">{{item}}</text>
 			</view>

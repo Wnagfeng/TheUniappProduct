@@ -21,7 +21,8 @@ const _sfc_main = {
           return {
             a: item.image,
             b: common_vendor.t(item.title),
-            c: common_vendor.o(($event) => RecommenditemClick(item))
+            c: common_vendor.o(($event) => RecommenditemClick(item), item),
+            d: item
           };
         })
       };

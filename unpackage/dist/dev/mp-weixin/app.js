@@ -7,6 +7,7 @@ if (!Math) {
   "./pages/cart/cart.js";
   "./pages/category/category.js";
   "./pages/home/c-page/bannerDetaile/bannerDetaile.js";
+  "./pages/Detaile/Detaile.js";
 }
 const _sfc_main = {
   onLaunch: function() {
