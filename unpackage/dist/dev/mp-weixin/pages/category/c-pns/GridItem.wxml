@@ -1,0 +1,1 @@
+<view class="wrapper"><view class="cover"><image class="image" src="{{a}}" mode="widthFix"></image></view><view class="inner"><text class="text">{{b}}</text><view class="info"><view class="orgPrice"> ${{c}}</view><view class="favor"><image class="favorIcon" src="{{d}}" mode="widthFix"></image><text class="cfav">{{e}}</text></view></view></view></view>

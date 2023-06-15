@@ -1,0 +1,90 @@
+
+.ShopinfoWrapper {
+		width: 100%;
+		margin-top: 20rpx;
+		padding: 20rpx;
+		background-color: #fff;
+}
+.top {
+		padding: 30rpx;
+		width: 100%;
+		display: flex;
+		align-items: center;
+}
+.image {
+		width: 80rpx;
+		height: 80rpx;
+}
+.name {
+		margin-left: 20rpx;
+}
+.goodsinfo {
+		margin-top: 20rpx;
+		margin-left: 10rpx;
+		padding: 20rpx;
+		display: flex;
+}
+.Cellsinner {
+
+		padding: 0 30rpx;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+}
+.Goodsinner {
+		padding: 0 30rpx;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		border-right: 1px solid #999;
+}
+.text {
+		font-size: 20rpx;
+}
+.cCells {
+		font-size: 35rpx;
+}
+.cGoods {
+		font-size: 35rpx;
+}
+.active {
+		color: red;
+}
+.noactive {
+		color: green;
+}
+.isbetter {
+		margin-left: 20rpx;
+		width: 35rpx;
+		background-color: red;
+		padding: 5prx;
+}
+.nobetter {
+		margin-left: 20rpx;
+		width: 35rpx;
+		background-color: green;
+		padding: 5prx;
+}
+.Shopinfoscore {
+
+		display: flex;
+		flex-direction: column;
+}
+.info {
+		margin-top: 10rpx;
+		display: flex;
+		justify-content: space-between;
+}
+.shopinfo {
+
+		display: flex;
+}
+.score {
+		margin-left: 20rpx;
+}
+.input{
+		margin-top: 20rpx;
+		width: 300rpx;
+		border-radius: 20rpx;
+		background-color: #999;
+}

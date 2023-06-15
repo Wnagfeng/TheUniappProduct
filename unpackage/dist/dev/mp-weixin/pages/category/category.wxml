@@ -1,1 +1,1 @@
-<view></view>
+<view class="wrapper"><left-nav wx:if="{{b}}" bindnavLClick="{{a}}" u-i="2018c1df-0" bind:__l="__l" u-p="{{b}}"></left-nav><categore-grid wx:if="{{d}}" binditemClcik="{{c}}" u-i="2018c1df-1" bind:__l="__l" u-p="{{d}}"></categore-grid></view>

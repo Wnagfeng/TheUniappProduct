@@ -14,6 +14,10 @@ const gethomedetaileData = (iid) => {
     iid
   });
 };
+const getHomeRecommenDara = () => {
+  return service_index.hyrequest.get("/recommend", {});
+};
 exports.getHomeData = getHomeData;
 exports.getHomeMutidata = getHomeMutidata;
+exports.getHomeRecommenDara = getHomeRecommenDara;
 exports.gethomedetaileData = gethomedetaileData;

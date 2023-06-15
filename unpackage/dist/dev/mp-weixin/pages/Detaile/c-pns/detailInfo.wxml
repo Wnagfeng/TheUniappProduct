@@ -1,0 +1,1 @@
+<view class="Wrapper"><block wx:if="{{a}}"><view class="title">{{b}}</view><block wx:for="{{c}}" wx:for-item="item"><view class="imageWrapper"><image class="image" src="{{item.a}}" mode="widthFix"></image></view></block></block></view>

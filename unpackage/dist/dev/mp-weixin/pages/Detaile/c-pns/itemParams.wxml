@@ -1,0 +1,1 @@
+<view class="wrapper"><view class="inner"><block wx:for="{{a}}" wx:for-item="item"><view class="row"><block wx:for="{{item.a}}" wx:for-item="iten"><view class="text">{{iten.a}}</view></block></view></block><block wx:for="{{b}}" wx:for-item="item"><view class="row1"><view class="key">{{item.a}}</view><view class="value">{{item.b}}</view></view></block></view></view>

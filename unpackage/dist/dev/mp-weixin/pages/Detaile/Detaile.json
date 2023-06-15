@@ -4,6 +4,13 @@
   "usingComponents": {
     "top-navbar": "./c-pns/top-nav-bar",
     "banner": "./c-pns/banner",
-    "goodsinfo-detaile": "./c-pns/goodsInfoDetaile"
+    "goodsinfo-detaile": "./c-pns/goodsInfoDetaile",
+    "shop-info": "./c-pns/shopInfo",
+    "skuinfo": "./c-pns/skuInfo",
+    "detaile-info": "./c-pns/detailInfo",
+    "goods-nav": "./c-pns/goodsNav",
+    "item-params": "./c-pns/itemParams",
+    "rate": "./c-pns/rate",
+    "recommen-list": "./c-pns/recommendList"
   }
 }

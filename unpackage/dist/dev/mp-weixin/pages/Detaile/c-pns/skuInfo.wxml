@@ -1,0 +1,1 @@
+<view class="descWrapper"><view class="desc"><view class="start"></view><view class="skuInfo">{{a}}</view><view class="end"></view></view></view>

@@ -1,5 +1,8 @@
 {
   "navigationBarTitleText": "分类",
   "enablePullDownRefresh": false,
-  "usingComponents": {}
+  "usingComponents": {
+    "left-nav": "./c-pns/leftNav",
+    "categore-grid": "./c-pns/categoryGrid"
+  }
 }

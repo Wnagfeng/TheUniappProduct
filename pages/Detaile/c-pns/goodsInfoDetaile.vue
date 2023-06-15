@@ -126,6 +126,7 @@
 	}
 
 	.icon {
+		margin-top: -10rpx;
 		width: 28rpx;
 		height: 28rpx;
 	}
@@ -135,19 +136,24 @@
 	}
 
 	.services {
+		
 		padding: 20rpx;
 		display: flex;
 
 	}
 
 	.inner {
+		background-color: #ff8198;
 		padding: 20rpx;
 		width: 100%;
 		display: flex;
+		align-items: center;
 		justify-content: space-between;
 	}
-
+	.inner{
+		/* margin-left: 10rpx; */
+	}
 	.name {
-		font-size: 5rpx;
+		font-size: 20rpx;
 	}
 </style>

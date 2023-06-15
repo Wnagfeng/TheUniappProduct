@@ -1,21 +1,51 @@
-
+/**
+ * 这里是uni-app内置的常用样式变量
+ *
+ * uni-app 官方扩展插件及插件市场（https://ext.dcloud.net.cn）上很多三方插件均使用了这些样式变量
+ * 如果你是插件开发者，建议你使用scss预处理，并在插件代码中直接使用这些变量（无需 import 这个文件），方便用户通过搭积木的方式开发整体风格一致的App
+ *
+ */
+/**
+ * 如果你是App开发者（插件使用者），你可以通过修改这些变量来定制自己的插件主题，实现自定义主题功能
+ *
+ * 如果你的项目同样使用了scss预处理，你也可以直接在你的 scss 代码中使用如下变量，同时无需 import 这个文件
+ */
+/* 颜色变量 */
+/* 行为相关颜色 */
+/* 文字基本颜色 */
+/* 背景颜色 */
+/* 边框颜色 */
+/* 尺寸变量 */
+/* 文字尺寸 */
+/* 图片尺寸 */
+/* Border Radius */
+/* 水平间距 */
+/* 垂直间距 */
+/* 透明度 */
+/* 文章场景相关 */
 .navbarWrapper[data-v-c47d77de] {
-		background-color: aliceblue;
-		width: 100%;
+  background-color: aliceblue;
+  width: 100%;
 }
 .topbar[data-v-c47d77de] {
-		display: flex;
-		justify-content: space-between;
-		align-items: center;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  /* top: 88rpx; */
+  z-index: 1000;
+  background-color: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 2.75rem;
 }
 .title[data-v-c47d77de] {
-		padding: 0.625rem 1.25rem;
+  padding: 0.625rem 1.25rem;
 }
-.active[data-v-c47d77de]{
-		font-weight: 800;
-		color: #ff8198;
+.active[data-v-c47d77de] {
+  font-weight: 800;
+  color: #ff8198;
 }
-
 
 .image[data-v-a7ca8bc3]{
 		width: 100%;
@@ -64,6 +94,7 @@
 		border-bottom: 1px solid #999;
 }
 .icon[data-v-ccc77f96] {
+		margin-top: -0.3125rem;
 		width: 0.875rem;
 		height: 0.875rem;
 }
@@ -71,24 +102,571 @@
 		width: 100%;
 }
 .services[data-v-ccc77f96] {
+		
 		padding: 0.625rem;
 		display: flex;
 }
 .inner[data-v-ccc77f96] {
+		background-color: #ff8198;
 		padding: 0.625rem;
 		width: 100%;
 		display: flex;
+		align-items: center;
 		justify-content: space-between;
 }
+.inner[data-v-ccc77f96]{
+		/* margin-left: 10rpx; */
+}
 .name[data-v-ccc77f96] {
-		font-size: 0.15625rem;
+		font-size: 0.625rem;
 }
 
 
-	/* 	.topbar {
-		position: fixed;
-		top: 88rpx;
-	} */
-.detaileWrapper{
+.ShopinfoWrapper[data-v-44acd0a9] {
+		width: 100%;
+		margin-top: 0.625rem;
+		padding: 0.625rem;
+		background-color: #fff;
+}
+.top[data-v-44acd0a9] {
+		padding: 0.9375rem;
+		width: 100%;
+		display: flex;
+		align-items: center;
+}
+.image[data-v-44acd0a9] {
+		width: 2.5rem;
+		height: 2.5rem;
+}
+.name[data-v-44acd0a9] {
+		margin-left: 0.625rem;
+}
+.goodsinfo[data-v-44acd0a9] {
+		margin-top: 0.625rem;
+		margin-left: 0.3125rem;
+		padding: 0.625rem;
+		display: flex;
+}
+.Cellsinner[data-v-44acd0a9] {
+
+		padding: 0 0.9375rem;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+}
+.Goodsinner[data-v-44acd0a9] {
+		padding: 0 0.9375rem;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		border-right: 1px solid #999;
+}
+.text[data-v-44acd0a9] {
+		font-size: 0.625rem;
+}
+.cCells[data-v-44acd0a9] {
+		font-size: 1.09375rem;
+}
+.cGoods[data-v-44acd0a9] {
+		font-size: 1.09375rem;
+}
+.active[data-v-44acd0a9] {
+		color: red;
+}
+.noactive[data-v-44acd0a9] {
+		color: green;
+}
+.isbetter[data-v-44acd0a9] {
+		margin-left: 0.625rem;
+		width: 1.09375rem;
+		background-color: red;
+		padding: 5prx;
+}
+.nobetter[data-v-44acd0a9] {
+		margin-left: 0.625rem;
+		width: 1.09375rem;
+		background-color: green;
+		padding: 5prx;
+}
+.Shopinfoscore[data-v-44acd0a9] {
+
+		display: flex;
+		flex-direction: column;
+}
+.info[data-v-44acd0a9] {
+		margin-top: 0.3125rem;
+		display: flex;
+		justify-content: space-between;
+}
+.shopinfo[data-v-44acd0a9] {
+
+		display: flex;
+}
+.score[data-v-44acd0a9] {
+		margin-left: 0.625rem;
+}
+.input[data-v-44acd0a9]{
+		margin-top: 0.625rem;
+		width: 9.375rem;
+		border-radius: 0.625rem;
 		background-color: #999;
+}
+
+
+.descWrapper[data-v-9e5f7234]{
+		width: 100%;
+		padding-top: 0.625rem;
+}
+.skuInfo[data-v-9e5f7234] {
+		background-color: #fff;
+		padding: 0.9375rem;
+}
+.desc[data-v-9e5f7234] {
+		background-color: #fff;
+		padding: 0.625rem;
+		position: absolute;
+}
+.start[data-v-9e5f7234] {
+		width: 5.625rem;
+		height: 0.0625rem;
+		background-color: black;
+		float: left;
+		top: 0;
+		position: relative;
+}
+.start[data-v-9e5f7234]::before {
+		position: relative;
+		top: -0.3125rem;
+		content: '';
+		display: block;
+		width: 0.3125rem;
+		height: 0.3125rem;
+		background-color: black;
+}
+.end[data-v-9e5f7234] {
+		position: relative;
+		width: 5.625rem;
+		height: 0.0625rem;
+		background-color: black;
+		float: right;
+}
+.end[data-v-9e5f7234]::before {
+		position: relative;
+		top: -0.3125rem;
+		right: -5.3125rem;
+		content: '';
+		display: block;
+		width: 0.3125rem;
+		height: 0.3125rem;
+		background-color: black;
+}
+
+
+.Wrapper[data-v-d86eb10f] {
+		padding: 0.625rem;
+		margin-top: 7.09375rem;
+		background-color: #fff;
+}
+.imageWrapper[data-v-d86eb10f]{
+		width: 100%;
+}
+.image[data-v-d86eb10f]{
+		width: 100%;
+}
+
+/**
+ * 这里是uni-app内置的常用样式变量
+ *
+ * uni-app 官方扩展插件及插件市场（https://ext.dcloud.net.cn）上很多三方插件均使用了这些样式变量
+ * 如果你是插件开发者，建议你使用scss预处理，并在插件代码中直接使用这些变量（无需 import 这个文件），方便用户通过搭积木的方式开发整体风格一致的App
+ *
+ */
+/**
+ * 如果你是App开发者（插件使用者），你可以通过修改这些变量来定制自己的插件主题，实现自定义主题功能
+ *
+ * 如果你的项目同样使用了scss预处理，你也可以直接在你的 scss 代码中使用如下变量，同时无需 import 这个文件
+ */
+/* 颜色变量 */
+/* 行为相关颜色 */
+/* 文字基本颜色 */
+/* 背景颜色 */
+/* 边框颜色 */
+/* 尺寸变量 */
+/* 文字尺寸 */
+/* 图片尺寸 */
+/* Border Radius */
+/* 水平间距 */
+/* 垂直间距 */
+/* 透明度 */
+/* 文章场景相关 */
+.wrapper[data-v-49d5449f] {
+  z-index: 10000;
+  display: flex;
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #fff;
+  width: 100%;
+  padding-bottom: 0.625rem;
+  padding-top: 0.625rem;
+  align-items: center;
+}
+.inner[data-v-49d5449f] {
+  display: flex;
+  flex: 1;
+  justify-content: space-between;
+}
+.service[data-v-49d5449f] {
+  margin-left: 0.9375rem;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+.service .image[data-v-49d5449f] {
+  width: 1.375rem;
+  height: 1.375rem;
+}
+.shop[data-v-49d5449f] {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+.shop .image[data-v-49d5449f] {
+  width: 1.375rem;
+  height: 1.375rem;
+}
+.favor[data-v-49d5449f] {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  margin-right: 0.625rem;
+}
+.favor .image[data-v-49d5449f] {
+  width: 1.375rem;
+  height: 1.375rem;
+}
+.inShopCart[data-v-49d5449f] {
+  text-align: center;
+  line-height: 3.125rem;
+  width: 70%;
+  height: 3.125rem;
+  background-color: green;
+}
+.play[data-v-49d5449f] {
+  text-align: center;
+  line-height: 3.125rem;
+  width: 30%;
+  height: 3.125rem;
+  background-color: pink;
+  margin-right: 0.625rem;
+}
+.right[data-v-49d5449f] {
+  flex: 1;
+  display: flex;
+}
+/**
+ * 这里是uni-app内置的常用样式变量
+ *
+ * uni-app 官方扩展插件及插件市场（https://ext.dcloud.net.cn）上很多三方插件均使用了这些样式变量
+ * 如果你是插件开发者，建议你使用scss预处理，并在插件代码中直接使用这些变量（无需 import 这个文件），方便用户通过搭积木的方式开发整体风格一致的App
+ *
+ */
+/**
+ * 如果你是App开发者（插件使用者），你可以通过修改这些变量来定制自己的插件主题，实现自定义主题功能
+ *
+ * 如果你的项目同样使用了scss预处理，你也可以直接在你的 scss 代码中使用如下变量，同时无需 import 这个文件
+ */
+/* 颜色变量 */
+/* 行为相关颜色 */
+/* 文字基本颜色 */
+/* 背景颜色 */
+/* 边框颜色 */
+/* 尺寸变量 */
+/* 文字尺寸 */
+/* 图片尺寸 */
+/* Border Radius */
+/* 水平间距 */
+/* 垂直间距 */
+/* 透明度 */
+/* 文章场景相关 */
+.wrapper[data-v-92c78f73] {
+  background-color: #fff;
+  padding: 1.25rem;
+  padding-top: 2.5rem;
+  padding-bottom: 4.6875rem;
+}
+.row[data-v-92c78f73] {
+  display: flex;
+  padding-bottom: 0.625rem;
+  flex-wrap: wrap;
+  padding-top: 0.625rem;
+  justify-content: space-between;
+  border-bottom: 1px solid #999;
+}
+.row1[data-v-92c78f73] {
+  display: flex;
+  padding-bottom: 0.625rem;
+  padding-top: 0.625rem;
+  border-bottom: 1px solid #999;
+  align-items: center;
+}
+.row1 .value[data-v-92c78f73] {
+  margin-left: 26%;
+  color: #ff8198;
+}
+/**
+ * 这里是uni-app内置的常用样式变量
+ *
+ * uni-app 官方扩展插件及插件市场（https://ext.dcloud.net.cn）上很多三方插件均使用了这些样式变量
+ * 如果你是插件开发者，建议你使用scss预处理，并在插件代码中直接使用这些变量（无需 import 这个文件），方便用户通过搭积木的方式开发整体风格一致的App
+ *
+ */
+/**
+ * 如果你是App开发者（插件使用者），你可以通过修改这些变量来定制自己的插件主题，实现自定义主题功能
+ *
+ * 如果你的项目同样使用了scss预处理，你也可以直接在你的 scss 代码中使用如下变量，同时无需 import 这个文件
+ */
+/* 颜色变量 */
+/* 行为相关颜色 */
+/* 文字基本颜色 */
+/* 背景颜色 */
+/* 边框颜色 */
+/* 尺寸变量 */
+/* 文字尺寸 */
+/* 图片尺寸 */
+/* Border Radius */
+/* 水平间距 */
+/* 垂直间距 */
+/* 透明度 */
+/* 文章场景相关 */
+.wrapper[data-v-390a7dc7] {
+  background-color: #fff;
+  padding: 1.25rem;
+  padding-top: 2.5rem;
+  padding-bottom: 1.5625rem;
+  border-bottom: 1px solid #999;
+}
+.top[data-v-390a7dc7] {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 1.25rem;
+  padding-bottom: 1.25rem;
+  border-bottom: 1px solid #999;
+}
+.info[data-v-390a7dc7] {
+  margin-top: 1.25rem;
+}
+.image[data-v-390a7dc7] {
+  width: 3.125rem;
+  height: 3.125rem;
+  border-radius: 50%;
+}
+.userinfo[data-v-390a7dc7] {
+  display: flex;
+  align-items: center;
+}
+.name[data-v-390a7dc7] {
+  margin-left: 1.25rem;
+}
+.rateinfo[data-v-390a7dc7] {
+  margin-top: 0.625rem;
+  display: flex;
+}
+.style[data-v-390a7dc7] {
+  margin-left: 0.625rem;
+}
+.content[data-v-390a7dc7] {
+  margin-top: 0.625rem;
+}
+/**
+ * 这里是uni-app内置的常用样式变量
+ *
+ * uni-app 官方扩展插件及插件市场（https://ext.dcloud.net.cn）上很多三方插件均使用了这些样式变量
+ * 如果你是插件开发者，建议你使用scss预处理，并在插件代码中直接使用这些变量（无需 import 这个文件），方便用户通过搭积木的方式开发整体风格一致的App
+ *
+ */
+/**
+ * 如果你是App开发者（插件使用者），你可以通过修改这些变量来定制自己的插件主题，实现自定义主题功能
+ *
+ * 如果你的项目同样使用了scss预处理，你也可以直接在你的 scss 代码中使用如下变量，同时无需 import 这个文件
+ */
+/* 颜色变量 */
+/* 行为相关颜色 */
+/* 文字基本颜色 */
+/* 背景颜色 */
+/* 边框颜色 */
+/* 尺寸变量 */
+/* 文字尺寸 */
+/* 图片尺寸 */
+/* Border Radius */
+/* 水平间距 */
+/* 垂直间距 */
+/* 透明度 */
+/* 文章场景相关 */
+.uni-grid-item[data-v-7a807eb7] {
+  height: 100%;
+  display: flex;
+}
+.uni-grid-item__box[data-v-7a807eb7] {
+  display: flex;
+  width: 100%;
+  position: relative;
+  flex: 1;
+  flex-direction: column;
+}
+.uni-grid-item--border[data-v-7a807eb7] {
+  position: relative;
+  z-index: 0;
+  border-bottom: 1px #D2D2D2 solid;
+  border-right: 1px #D2D2D2 solid;
+}
+.uni-grid-item--border-top[data-v-7a807eb7] {
+  position: relative;
+  border-top: 1px #D2D2D2 solid;
+  z-index: 0;
+}
+.uni-highlight[data-v-7a807eb7]:active {
+  background-color: #f1f1f1;
+}
+/**
+ * 这里是uni-app内置的常用样式变量
+ *
+ * uni-app 官方扩展插件及插件市场（https://ext.dcloud.net.cn）上很多三方插件均使用了这些样式变量
+ * 如果你是插件开发者，建议你使用scss预处理，并在插件代码中直接使用这些变量（无需 import 这个文件），方便用户通过搭积木的方式开发整体风格一致的App
+ *
+ */
+/**
+ * 如果你是App开发者（插件使用者），你可以通过修改这些变量来定制自己的插件主题，实现自定义主题功能
+ *
+ * 如果你的项目同样使用了scss预处理，你也可以直接在你的 scss 代码中使用如下变量，同时无需 import 这个文件
+ */
+/* 颜色变量 */
+/* 行为相关颜色 */
+/* 文字基本颜色 */
+/* 背景颜色 */
+/* 边框颜色 */
+/* 尺寸变量 */
+/* 文字尺寸 */
+/* 图片尺寸 */
+/* Border Radius */
+/* 水平间距 */
+/* 垂直间距 */
+/* 透明度 */
+/* 文章场景相关 */
+.uni-grid-wrap[data-v-07acefee] {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+}
+.uni-grid[data-v-07acefee] {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+.uni-grid--border[data-v-07acefee] {
+  position: relative;
+  z-index: 1;
+  border-left: 1px #D2D2D2 solid;
+}
+/**
+ * 这里是uni-app内置的常用样式变量
+ *
+ * uni-app 官方扩展插件及插件市场（https://ext.dcloud.net.cn）上很多三方插件均使用了这些样式变量
+ * 如果你是插件开发者，建议你使用scss预处理，并在插件代码中直接使用这些变量（无需 import 这个文件），方便用户通过搭积木的方式开发整体风格一致的App
+ *
+ */
+/**
+ * 如果你是App开发者（插件使用者），你可以通过修改这些变量来定制自己的插件主题，实现自定义主题功能
+ *
+ * 如果你的项目同样使用了scss预处理，你也可以直接在你的 scss 代码中使用如下变量，同时无需 import 这个文件
+ */
+/* 颜色变量 */
+/* 行为相关颜色 */
+/* 文字基本颜色 */
+/* 背景颜色 */
+/* 边框颜色 */
+/* 尺寸变量 */
+/* 文字尺寸 */
+/* 图片尺寸 */
+/* Border Radius */
+/* 水平间距 */
+/* 垂直间距 */
+/* 透明度 */
+/* 文章场景相关 */
+.gridWrapper[data-v-1a920e05] {
+  background-color: #fff;
+  padding-top: 2.5rem;
+  padding-bottom: 5.3125rem;
+}
+.imageWrapper[data-v-1a920e05] {
+  width: 100prx;
+  border-radius: 0.625rem;
+  overflow: hidden;
+}
+.image[data-v-1a920e05] {
+  width: 100%;
+}
+.inner[data-v-1a920e05] {
+  box-sizing: border-box;
+  padding: 0.625rem;
+  width: 100%;
+}
+.favorIcon[data-v-1a920e05] {
+  width: 0.9375rem;
+  height: 0.9375rem;
+}
+.info[data-v-1a920e05] {
+  margin-top: 0.3125rem;
+  font-size: 0.75rem;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+.title[data-v-1a920e05] {
+  margin-top: 0.625rem;
+  width: 10rem;
+  font-size: 0.875rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.icon[data-v-1a920e05] {
+  display: flex;
+  align-items: center;
+}
+/**
+ * 这里是uni-app内置的常用样式变量
+ *
+ * uni-app 官方扩展插件及插件市场（https://ext.dcloud.net.cn）上很多三方插件均使用了这些样式变量
+ * 如果你是插件开发者，建议你使用scss预处理，并在插件代码中直接使用这些变量（无需 import 这个文件），方便用户通过搭积木的方式开发整体风格一致的App
+ *
+ */
+/**
+ * 如果你是App开发者（插件使用者），你可以通过修改这些变量来定制自己的插件主题，实现自定义主题功能
+ *
+ * 如果你的项目同样使用了scss预处理，你也可以直接在你的 scss 代码中使用如下变量，同时无需 import 这个文件
+ */
+/* 颜色变量 */
+/* 行为相关颜色 */
+/* 文字基本颜色 */
+/* 背景颜色 */
+/* 边框颜色 */
+/* 尺寸变量 */
+/* 文字尺寸 */
+/* 图片尺寸 */
+/* Border Radius */
+/* 水平间距 */
+/* 垂直间距 */
+/* 透明度 */
+/* 文章场景相关 */
+.topbar {
+  width: 100%;
+}
+.detaileWrapper {
+  background-color: #999;
+}
+.banner {
+  margin-top: 2.75rem;
 }

@@ -20,7 +20,8 @@ const useHomeStore = common_vendor.defineStore("home", {
       goodsList: createGoodsListdata(),
       currentType: "pop",
       currentGoodsData: {},
-      DetaileBanners: []
+      DetaileBanners: [],
+      RecommendList: []
     };
   },
   actions: {
@@ -41,6 +42,10 @@ const useHomeStore = common_vendor.defineStore("home", {
       const res = await service_home.gethomedetaileData(iid);
       this.currentGoodsData = res.result;
       this.DetaileBanners = res.result.itemInfo.topImages;
+    },
+    async fetchgetHomerecommendData() {
+      const res = await service_home.getHomeRecommenDara();
+      this.RecommendList = res.data.list;
     }
   }
 });

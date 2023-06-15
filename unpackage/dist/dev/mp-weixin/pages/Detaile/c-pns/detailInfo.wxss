@@ -1,0 +1,12 @@
+
+.Wrapper {
+		padding: 20rpx;
+		margin-top: 227rpx;
+		background-color: #fff;
+}
+.imageWrapper{
+		width: 100%;
+}
+.image{
+		width: 100%;
+}

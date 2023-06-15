@@ -1,0 +1,28 @@
+
+.wrapper {
+		width: 80%;
+		float: right;
+		margin-top: 20rpx;
+		box-sizing: border-box;
+		padding-bottom: 180rpx;
+}
+.inner {
+		display: inline-block;
+		margin-top: 20rpx;
+}
+.item {
+		display: flex;
+		align-items: center;
+		flex-direction: column;
+}
+.image {
+		width: 150rpx;
+		height: 150rpx;
+}
+.select {
+		width: 100%;
+		margin-top: 30rpx;
+}
+.gridWrapper{
+		width: 100%;
+}

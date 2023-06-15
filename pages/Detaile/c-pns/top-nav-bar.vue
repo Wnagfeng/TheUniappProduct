@@ -41,27 +41,43 @@
 	const currentIndex = ref(0)
 
 	function itemClick(index) {
-		currentIndex.value=index
+		currentIndex.value = index
 		emit("itemCLick", index)
 	}
 </script>
 
-<style>
+<style lang="scss">
 	.navbarWrapper {
 		background-color: aliceblue;
 		width: 100%;
 	}
 
 	.topbar {
+		position: fixed;
+		width: 100%;
+		/* #ifdef H5 */
+		top: 80rpx;
+		right: 0;
+		left: 0;
+		/* #endif */
+		/* #ifdef APP-PLUS */
+		top: 0rpx;
+		/* #endif */
+
+		/* top: 88rpx; */
+		z-index: 1000;
+		background-color: #fff;
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
+		height: 88rpx;
 	}
 
 	.title {
 		padding: 20rpx 40rpx;
 	}
-	.active{
+
+	.active {
 		font-weight: 800;
 		color: #ff8198;
 	}

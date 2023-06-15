@@ -13,3 +13,8 @@ export const gethomedetaileData = (iid) => {
 		iid
 	})
 }
+export const getHomeRecommenDara = () => {
+	return hyrequest.get('/recommend', {
+
+	})
+}
