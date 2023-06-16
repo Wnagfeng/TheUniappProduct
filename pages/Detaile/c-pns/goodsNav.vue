@@ -1,5 +1,5 @@
 <template>
-	<view class="wrapper" @click="goodsNavClick">
+	<view class="wrapper" >
 		<view class="inner">
 			<view class="service">
 				<image class="image" src="@/static/images/GoodsNavbar/service.png" mode="widthFix"></image>
@@ -15,7 +15,7 @@
 			</view>
 		</view>
 		<view class="right">
-			<view class="inShopCart">加入购物车</view>
+			<view class="inShopCart" @click="goodsNavClick">加入购物车</view>
 			<view class="play">PLAY!</view>
 		</view>
 	</view>

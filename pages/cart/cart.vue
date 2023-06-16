@@ -1,5 +1,6 @@
 <template>
 	<template v-for="(item) in shopdata">
+		
 		<itemdetaile :itemdata="item"></itemdetaile>
 	</template>
 </template>

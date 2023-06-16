@@ -70,7 +70,7 @@
 		DetaileBanners,
 		RecommendList
 	} = storeToRefs(homestore)
-	
+
 	const props = defineProps({
 		iid: {
 			type: String,
@@ -89,7 +89,8 @@
 	}
 
 	function handelgoodsNavClick() {
-		shopstore.addshopData(currentGoodsData)
+		const goodsData=currentGoodsData.value
+		shopstore.addshopData(goodsData)
 	}
 </script>
 
